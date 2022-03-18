@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body{
@@ -18,6 +19,7 @@ button{
     border: 3px solid #23d997;
     background: transparent;
     color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: all 0.5s ease-in;
     &:hover {
         background-color: #23d997;
@@ -43,7 +45,7 @@ a{
 }
 
 span{
-    font-weight:bold;
+    font-weight: bold;
     color:#23d997;
 }
 

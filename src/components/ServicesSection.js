@@ -6,6 +6,10 @@ import money from '../img/money.svg'
 import teamwork from '../img/teamwork.svg'
 import home2 from '../img/home2.png'
 
+//Styles
+import styled from 'styled-components'
+import { About, Description, Image, Hide } from '../styles.js'
+
 const cards = [
     { icon: clock, h3Text: 'Efficient', pText: 'Lorem ipsum dolor sit amet.' },
     { icon: teamwork, h3Text: 'Teamwork', pText: 'Lorem ipsum dolor sit amet.' },
@@ -15,28 +19,66 @@ const cards = [
 
 export const ServicesSection = () => {
     return (
-        <div className="services">
-            <div className="desciption">
+        <Services>
+            <CameraImg>
+                <img src={home2} alt="" />
+            </CameraImg>
+            <SeviceDescription>
                 <h2>
                     High <span>quality</span> services
                 </h2>
-                <div className="cards">
+                <Cards>
                     {cards.map((card) => {
                         return (
-                            <div className="card">
+                            <Card>
                                 <div className="icon">
                                     <img src={card.icon} />
                                     <h3>{card.h3Text}</h3>
                                 </div>
                                 <p className="">{card.pText}</p>
-                            </div>
+                            </Card>
                         )
                     })}
-                </div>
-            </div>
-            <div className="image">
-                <img src={home2} alt="" />
-            </div>
-        </div>
+                </Cards>
+            </SeviceDescription>
+        </Services>
     )
 }
+
+const Services = styled(About)`
+    h2 {
+        padding-bottom: 5rem;
+    }
+
+    p {
+        width: 70%;
+        padding: 2rem 0rem 4rem 0rem;
+    }
+`
+
+const SeviceDescription = styled(Description)`
+    flex: 1;
+    padding-right: 0;
+`
+
+const CameraImg = styled(Image)`
+    padding-right: 2.5rem;
+`
+
+const Cards = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+const Card = styled.div`
+    flex-basis: 23rem;
+    .icon {
+        display: flex;
+        align-items: center;
+        h3 {
+            margin-left: 1rem;
+            background: white;
+            color: black;
+            padding: 1rem;
+        }
+    }
+`
