@@ -4,7 +4,7 @@ import { AboutSection } from '../components/AboutSection.js'
 import { ServicesSection } from '../components/ServicesSection.js'
 import { FaqSection } from '../components/FaqSection.js'
 
-export const AboutUs = () => {
+const AboutUs = () => {
     return (
         <>
             <AboutSection />
@@ -13,3 +13,4 @@ export const AboutUs = () => {
         </>
     )
 }
+export default AboutUs
