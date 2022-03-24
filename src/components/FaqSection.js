@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+import { About } from '../styles.js'
 
 const questions = [
     {
@@ -25,7 +27,7 @@ const questions = [
 
 export const FaqSection = () => {
     return (
-        <div className="faq">
+        <Faq>
             <h2>
                 Any Question <span> FAQ</span>
             </h2>
@@ -33,13 +35,38 @@ export const FaqSection = () => {
                 return (
                     <div className="question">
                         <h4>{question.title}</h4>
+
                         <div className="answer">
                             <p>{question.answer1}</p>
                             <p>{question.answer2}</p>
                         </div>
+                        <div className="faq-line"></div>
                     </div>
                 )
             })}
-        </div>
+        </Faq>
     )
 }
+
+const Faq = styled(About)`
+    display: block;
+    span {
+        display: block;
+    }
+    h2 {
+        padding-bottom: 2rem;
+        font-weight: lighter;
+    }
+    .faq-line {
+        background: #cccccc;
+        height: 0.2rem;
+        margin: 2rem 0rem;
+        width: 100%;
+    }
+    .question {
+        padding: 3rem 0rem;
+        p {
+            padding: 1rem 0rem;
+        }
+    }
+`
