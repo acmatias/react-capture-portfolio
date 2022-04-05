@@ -4,6 +4,24 @@ import styled from 'styled-components'
 // Router
 import { Link } from 'react-router-dom'
 
+const navItems = [
+    {
+        key: 1,
+        name: '1. About Us',
+        linkTo: '/',
+    },
+    {
+        key: 2,
+        name: '2. Our Work',
+        linkTo: 'work',
+    },
+    {
+        key: 3,
+        name: '3. Contact Us',
+        linkTo: 'contact',
+    },
+]
+
 const Nav = () => {
     return (
         <StyedNav>
@@ -13,21 +31,15 @@ const Nav = () => {
                 </Link>
             </h1>
             <ul>
-                <li>
-                    <Link className="link" to="aboutus">
-                        1. About Us
-                    </Link>
-                </li>
-                <li>
-                    <Link className="link" to="ourwork">
-                        2. Our Work
-                    </Link>
-                </li>
-                <li>
-                    <Link className="link" to="contactus">
-                        3. Contact Us
-                    </Link>
-                </li>
+                {navItems.map((navItem) => {
+                    return (
+                        <li key={navItem.key}>
+                            <Link className="link" to={navItem.linkTo}>
+                                {navItem.name}
+                            </Link>
+                        </li>
+                    )
+                })}
             </ul>
         </StyedNav>
     )

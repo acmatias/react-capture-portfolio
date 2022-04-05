@@ -1,24 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-import { About } from '../styles.js'
 
 const questions = [
     {
+        key: 1,
         title: 'How do I Start?',
         answer1: 'Lorem ipsum dolor sit amet.',
         answer2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, libero.',
     },
     {
+        key: 2,
         title: 'Daily Schedule',
         answer1: 'Lorem ipsum dolor sit amet.',
         answer2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, libero.',
     },
     {
+        key: 3,
         title: 'Diferrent Payment Methods',
         answer1: 'Lorem ipsum dolor sit amet.',
         answer2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, libero.',
     },
     {
+        key: 4,
         title: 'What Products do you offer.',
         answer1: 'Lorem ipsum dolor sit amet.',
         answer2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, libero.',
@@ -33,7 +36,7 @@ export const FaqSection = () => {
             </h2>
             {questions.map((question) => {
                 return (
-                    <div className="question">
+                    <div className="question" key={question.key}>
                         <h4>{question.title}</h4>
 
                         <div className="answer">
@@ -48,7 +51,12 @@ export const FaqSection = () => {
     )
 }
 
-const Faq = styled(About)`
+const Faq = styled.div`
+    min-height: 90vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 10rem;
+    color: white;
     display: block;
     span {
         display: block;

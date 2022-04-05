@@ -8,13 +8,12 @@ import home2 from '../img/home2.png'
 
 //Styles
 import styled from 'styled-components'
-import { About, Description, Image, Hide } from '../styles.js'
 
 const cards = [
-    { icon: clock, h3Text: 'Efficient', pText: 'Lorem ipsum dolor sit amet.' },
-    { icon: teamwork, h3Text: 'Teamwork', pText: 'Lorem ipsum dolor sit amet.' },
-    { icon: diaphragm, h3Text: 'Diaphragm', pText: 'Lorem ipsum dolor sit amet.' },
-    { icon: money, h3Text: 'Money', pText: 'Lorem ipsum dolor sit amet.' },
+    { id: '1', icon: clock, h3Text: 'Efficient', pText: 'Lorem ipsum dolor sit amet.' },
+    { id: '2', icon: teamwork, h3Text: 'Teamwork', pText: 'Lorem ipsum dolor sit amet.' },
+    { id: '3', icon: diaphragm, h3Text: 'Diaphragm', pText: 'Lorem ipsum dolor sit amet.' },
+    { id: '4', icon: money, h3Text: 'Money', pText: 'Lorem ipsum dolor sit amet.' },
 ]
 
 export const ServicesSection = () => {
@@ -30,9 +29,9 @@ export const ServicesSection = () => {
                 <Cards>
                     {cards.map((card) => {
                         return (
-                            <Card>
+                            <Card key={card.id}>
                                 <div className="icon">
-                                    <img src={card.icon} />
+                                    <img src={card.icon} alt="" />
                                     <h3>{card.h3Text}</h3>
                                 </div>
                                 <p className="">{card.pText}</p>
@@ -45,7 +44,13 @@ export const ServicesSection = () => {
     )
 }
 
-const Services = styled(About)`
+const Services = styled.div`
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 10rem;
+    color: white;
     h2 {
         padding-bottom: 5rem;
     }
@@ -56,13 +61,23 @@ const Services = styled(About)`
     }
 `
 
-const SeviceDescription = styled(Description)`
+const SeviceDescription = styled.div`
     flex: 1;
     padding-right: 0;
+    h2 {
+        font-weight: lighter;
+    }
 `
 
-const CameraImg = styled(Image)`
+const CameraImg = styled.div`
+    flex: 1;
     padding-right: 2.5rem;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+    }
 `
 
 const Cards = styled.div`
