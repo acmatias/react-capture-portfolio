@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+//animation
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../components/Animation.js'
+
 const OurWork = ({ movies, setMovies }) => {
     return (
-        <Work>
+        <Work variants={pageAnimation} initial="hidden" animate="show" exit="exit">
             {movies.map((movie) => {
                 return (
                     <Movie key={movie.title}>
@@ -20,7 +24,7 @@ const OurWork = ({ movies, setMovies }) => {
     )
 }
 
-const Work = styled.div`
+const Work = styled(motion.div)`
     min-height: 100vh;
     overflow: hidden;
     padding: 5rem 10rem;

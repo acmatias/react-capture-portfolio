@@ -10,21 +10,32 @@ import ContactUs from './pages/ContactUs'
 import MovieDetail from './pages/MovieDetail'
 
 // Router
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+
+// Animation
+import { AnimatePresence } from 'framer-motion'
 
 function App() {
     const [movies, setMovies] = useState(MovieState)
+
+    const url = useLocation()
 
     return (
         <div className="App">
             <GlobalStyle />
             <Nav />
-            <Routes>
-                <Route path="/" exact element={<AboutUs />} />
-                <Route path="/work" exact element={<OurWork movies={movies} setMovies={setMovies} />} />
-                <Route path="/work/:id" element={<MovieDetail movies={movies} setMovies={setMovies} />} />
-                <Route path="/contact" element={<ContactUs />} />
-            </Routes>
+            <AnimatePresence exitBeforeEnter>
+                <Routes location={url} key={url.pathname}>
+                    <Route path="/" exact element={<AboutUs />} />
+                    <Route path="/work" exact element={<OurWork movies={movies} setMovies={setMovies} />} />
+                    <Route
+                        path="/work/:id"
+                        exact
+                        element={<MovieDetail movies={movies} setMovies={setMovies} />}
+                    />
+                    <Route path="/contact" exact element={<ContactUs />} />
+                </Routes>
+            </AnimatePresence>
         </div>
     )
 }
