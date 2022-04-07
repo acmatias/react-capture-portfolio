@@ -24,7 +24,13 @@ const cards = [
 export const ServicesSection = () => {
     const [element, control] = useScroll()
     return (
-        <Services variants={scrollReveal} animate={control} initial="hidden" ref={element}>
+        <Services
+            variants={scrollReveal}
+            animate={control}
+            initial="hidden"
+            viewport={{ once: true }}
+            ref={element}
+        >
             <CameraImg>
                 <img src={home2} alt="" />
             </CameraImg>
@@ -61,9 +67,15 @@ const Services = styled(motion.div)`
         padding-bottom: 5rem;
     }
 
-    p {
-        width: 70%;
-        padding: 2rem 0rem 4rem 0rem;
+    @media (max-width: 1300px) {
+        display: grid;
+        grid-template-areas:
+            'header header header header  '
+            'cards cards cards cards'
+            'image image image image';
+        gap: 10px;
+        padding: 2rem 2rem;
+        text-align: center;
     }
 `
 
@@ -72,6 +84,9 @@ const SeviceDescription = styled.div`
     padding-right: 0;
     h2 {
         font-weight: lighter;
+    }
+    @media (max-width: 1300px) {
+        grid-area: header;
     }
 `
 
@@ -84,22 +99,46 @@ const CameraImg = styled.div`
         height: 80vh;
         object-fit: cover;
     }
+    @media (max-width: 1300px) {
+        grid-area: image;
+        padding: 0;
+    }
 `
 
 const Cards = styled.div`
     display: flex;
     flex-wrap: wrap;
+    @media (max-width: 1300px) {
+        justify-content: center;
+    }
 `
 const Card = styled.div`
     flex-basis: 23rem;
     .icon {
         display: flex;
+
         align-items: center;
-        h3 {
-            margin-left: 1rem;
-            background: white;
-            color: black;
-            padding: 1rem;
+    }
+    h3 {
+        display: flex;
+        margin-left: 1rem;
+        background: white;
+        color: black;
+        padding: 1rem;
+    }
+    p {
+        width: 70%;
+        padding: 2rem 0rem 4rem 0rem;
+    }
+    @media (max-width: 1300px) {
+        grid-area: cards;
+        flex-basis: 20rem;
+        .icon {
+            justify-content: center;
+        }
+        p {
+            width: 100%;
+            padding: 2rem 0rem;
         }
     }
 `

@@ -20,7 +20,11 @@ const MovieDetail = ({ movies, setMovies }) => {
             {movie && (
                 <Details variants={pageAnimation} initial="hidden" animate="show" exit="exit">
                     <Headline>
-                        <h2>{movie.title}</h2>
+                        <h2>
+                            {movie.title}
+                            <div className="line"></div>
+                        </h2>
+
                         <img src={movie.mainImg} alt="" />
                     </Headline>
                     <Awards>
@@ -40,6 +44,18 @@ const MovieDetail = ({ movies, setMovies }) => {
         </>
     )
 }
+// Award component
+const Award = ({ title, description }) => {
+    return (
+        <AwardStyle className="">
+            <h3>{title}</h3>
+            <div className="line"></div>
+            <p>{description}</p>
+        </AwardStyle>
+    )
+}
+
+// styles
 
 const Details = styled(motion.div)`
     color: white;
@@ -49,6 +65,11 @@ const Headline = styled.div`
     min-height: 90vh;
     padding-top: 20vh;
     position: relative;
+    .line {
+        width: 100%;
+        background: #23d997;
+        height: 0.5rem;
+    }
     h2 {
         position: absolute;
         top: 10%;
@@ -67,7 +88,13 @@ const Awards = styled.div`
     margin: 5rem 10rem;
     align-items: center;
     justify-content: space-around;
+    @media (max-width: 1300px) {
+        min-height: 50vh;
+        flex-direction: column;
+        margin: 2rem;
+    }
 `
+
 const AwardStyle = styled.div`
     padding: 5rem;
     h3 {
@@ -82,6 +109,9 @@ const AwardStyle = styled.div`
     p {
         padding: 2rem 0rem;
     }
+    @media (max-width: 550px) {
+        padding: 2rem 0rem;
+    }
 `
 
 const ImageDisplay = styled.div`
@@ -91,17 +121,11 @@ const ImageDisplay = styled.div`
         height: 100vh;
         object-fit: cover;
     }
+    @media (max-width: 1300px) {
+        img {
+            height: 50vh;
+        }
+    }
 `
-
-//award component
-const Award = ({ title, description }) => {
-    return (
-        <AwardStyle className="">
-            <h3>{title}</h3>
-            <div className="line"></div>
-            <p>{description}</p>
-        </AwardStyle>
-    )
-}
 
 export default MovieDetail
