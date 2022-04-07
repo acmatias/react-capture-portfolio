@@ -9,6 +9,11 @@ import home2 from '../img/home2.png'
 //Styles
 import styled from 'styled-components'
 
+//animation
+import { motion } from 'framer-motion'
+import { scrollReveal } from '../animation.js'
+import { useScroll } from './useScroll.js'
+
 const cards = [
     { id: '1', icon: clock, h3Text: 'Efficient', pText: 'Lorem ipsum dolor sit amet.' },
     { id: '2', icon: teamwork, h3Text: 'Teamwork', pText: 'Lorem ipsum dolor sit amet.' },
@@ -17,8 +22,9 @@ const cards = [
 ]
 
 export const ServicesSection = () => {
+    const [element, control] = useScroll()
     return (
-        <Services>
+        <Services variants={scrollReveal} animate={control} initial="hidden" ref={element}>
             <CameraImg>
                 <img src={home2} alt="" />
             </CameraImg>
@@ -44,7 +50,7 @@ export const ServicesSection = () => {
     )
 }
 
-const Services = styled.div`
+const Services = styled(motion.div)`
     min-height: 90vh;
     display: flex;
     align-items: center;

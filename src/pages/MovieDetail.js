@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 //animation
 import { motion } from 'framer-motion'
-import { pageAnimation } from '../components/Animation.js'
+import { pageAnimation } from '../animation.js'
 
 const MovieDetail = ({ movies, setMovies }) => {
     const url = useLocation()

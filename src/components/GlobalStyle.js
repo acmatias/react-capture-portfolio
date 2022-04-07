@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
 body{
     background: #1b1b1b;
+    overflow-x: hidden;
 }
 
 button{
@@ -57,6 +58,5 @@ p{
     font-size: 1.4rem;
     line-height: 150%;
 }
-
 `
 export default GlobalStyle

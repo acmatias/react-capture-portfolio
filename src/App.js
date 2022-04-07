@@ -24,7 +24,12 @@ function App() {
         <div className="App">
             <GlobalStyle />
             <Nav />
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence
+                exitBeforeEnter
+                onExitComplete={() => {
+                    window.scrollTo(0, 0)
+                }}
+            >
                 <Routes location={url} key={url.pathname}>
                     <Route path="/" exact element={<AboutUs />} />
                     <Route path="/work" exact element={<OurWork movies={movies} setMovies={setMovies} />} />

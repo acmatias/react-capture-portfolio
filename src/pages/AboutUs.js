@@ -6,7 +6,7 @@ import { FaqSection } from '../components/FaqSection.js'
 
 //animation
 import { motion } from 'framer-motion'
-import { pageAnimation } from '../components/Animation.js'
+import { pageAnimation } from '../animation.js'
 
 const AboutUs = () => {
     return (
